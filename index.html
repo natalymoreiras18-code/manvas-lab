@@ -1,0 +1,925 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Espacio Común · Recuperamos la calle Viollier junto a los vecinos</title>
+<meta name="description" content="Propuesta de recuperación de espacios públicos en calle Viollier, Santiago. Proyecto CD1201, FCFM, Universidad de Chile. Equipo Manva's.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Poppins:wght@400;500;600&display=swap">
+<style>
+:root{
+  --bg:#F7F9F9; --surface:#EAF0F0; --card:#FFFFFF; --ink:#16212B; --on-ink:#F7F9F9; --muted:#4A5864; --line:#D3D9DE;
+  --accent:#2A9D8F; --accent-ink:#1B6E64; --accent-soft:#D7EFEC; --signal:#F4A261; --signal-soft:#FDEBDD; --on-signal:#16212B;
+  --ring:#1B5FD1; --tape:#16212B; --danger:#C0392B;
+  --btn-bg:#1F7A6F; --btn-bg-hover:#1B6E64; --btn-text:#fff;
+  --hero-a:#D7EFEC; --hero-b:#FDEBDD;
+  --shadow:0 10px 30px -12px rgba(22,33,43,.25);
+  --mark:linear-gradient(transparent 62%,#F4A261 62%,#F4A261 90%,transparent 90%);
+  --mark-g:linear-gradient(transparent 62%,#7FD6CA 62%,#7FD6CA 90%,transparent 90%);
+  --f-display:'Montserrat',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --f-body:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --step--1:clamp(.8125rem,.79rem + .1vw,.875rem);
+  --step-0:clamp(1rem,.96rem + .2vw,1.125rem);
+  --step-1:clamp(1.125rem,1.05rem + .4vw,1.375rem);
+  --step-3:clamp(1.75rem,1.4rem + 1.8vw,2.5rem);
+  --step-4:clamp(2.1rem,1.3rem + 3.8vw,4rem);
+  --gutter:clamp(1rem,4vw,2.75rem);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#111A21; --surface:#18232C; --card:#212F3A; --ink:#F4F7F7; --on-ink:#111A21; --muted:#A8B5BF; --line:#33424E;
+    --accent-ink:#5FD0C2; --accent-soft:#1B3F3B; --signal-soft:#45331F; --ring:#7FB2FF; --tape:#0B1116; --danger:#F1948A;
+    --hero-a:#16322F; --hero-b:#2F2418; --shadow:0 10px 30px -12px rgba(0,0,0,.6);
+    --mark:none; --mark-g:none; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#111A21; --surface:#18232C; --card:#212F3A; --ink:#F4F7F7; --on-ink:#111A21; --muted:#A8B5BF; --line:#33424E;
+  --accent-ink:#5FD0C2; --accent-soft:#1B3F3B; --signal-soft:#45331F; --ring:#7FB2FF; --tape:#0B1116; --danger:#F1948A;
+  --hero-a:#16322F; --hero-b:#2F2418; --shadow:0 10px 30px -12px rgba(0,0,0,.6);
+  --mark:none; --mark-g:none; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 var(--step-0)/1.65 var(--f-body);overflow-x:hidden;-webkit-text-size-adjust:100%}
+h1,h2,h3,h4{font-family:var(--f-display);line-height:1.12;text-wrap:balance;margin:0;overflow-wrap:break-word}
+p,ul,ol,dl,dd,figure{margin:0}
+p{max-width:65ch}
+ul,ol{padding:0;list-style:none}
+button,input,select,textarea{font:inherit;color:inherit}
+a{color:var(--ink);text-decoration-color:var(--signal);text-decoration-thickness:2px;text-underline-offset:.2em}
+:focus-visible{outline:3px solid var(--ring);outline-offset:2px}
+.wrap{max-width:1200px;margin-inline:auto;padding-inline:var(--gutter)}
+.eyebrow{font:600 .75rem/1.2 var(--f-body);letter-spacing:.12em;text-transform:uppercase;color:var(--accent-ink)}
+.mark{background-image:var(--mark);color:var(--ink);-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.mark.g{background-image:var(--mark-g)}
+:root[data-theme="dark"] .mark,:root:not([data-theme="light"]) .mark{}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .mark{color:var(--signal)}:root:not([data-theme="light"]) .mark.g{color:#5FD0C2}}
+:root[data-theme="dark"] .mark{color:var(--signal)}:root[data-theme="dark"] .mark.g{color:#5FD0C2}
+.tape{height:12px;background:repeating-linear-gradient(-45deg,var(--signal) 0 14px,var(--tape) 14px 28px)}
+
+/* Nav */
+.nav{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;gap:12px;padding-block:10px}
+.brand{font:800 1.2rem/1 var(--f-display);text-decoration:none;display:flex;align-items:center;gap:8px;white-space:nowrap}
+.brand i{width:14px;height:14px;background:var(--signal);border:2px solid var(--ink);display:inline-block;transform:rotate(45deg)}
+.nav-links{display:flex;gap:2px;margin-left:auto;overflow-x:auto;scrollbar-width:none;min-width:0}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-links a{font:500 .8125rem/1 var(--f-body);text-decoration:none;padding:10px;color:var(--muted);white-space:nowrap;border-radius:999px}
+.nav-links a:hover,.nav-links a.on{color:var(--ink);background:var(--surface)}
+.theme{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--line);background:var(--card);cursor:pointer;display:grid;place-items:center;flex:none}
+@media (max-width:760px){.nav-in{flex-wrap:wrap}.nav-links{order:3;flex-basis:100%;margin-left:-10px}.theme{margin-left:auto}}
+
+/* Botones */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:3rem;padding:.75rem 1.6rem;font:500 1rem/1.2 var(--f-body);text-decoration:none;cursor:pointer;color:var(--btn-text);background:var(--btn-bg);border:2px solid transparent;border-radius:999px;transition:background-color .15s,transform .15s,box-shadow .15s}
+.btn:hover{background:var(--btn-bg-hover);transform:translateY(-2px);box-shadow:var(--shadow)}
+.btn:disabled{opacity:.55;cursor:not-allowed;transform:none;box-shadow:none}
+.btn--ocre{background:var(--signal);color:var(--on-signal)}
+.btn--ocre:hover{background:#EC9145}
+.btn-sm{min-height:2.5rem;font-size:.875rem;padding:.5rem 1.1rem}
+
+/* Hero */
+.hero-bg{background:radial-gradient(900px 420px at 85% 0%,var(--hero-b),transparent 70%),radial-gradient(800px 480px at 0% 20%,var(--hero-a),transparent 70%)}
+.hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(24px,4vw,56px);align-items:center;padding-block:clamp(36px,6vw,80px)}
+.hero h1{font-size:var(--step-4);font-weight:800;letter-spacing:-.02em;margin-block:1rem 1.25rem}
+.lead{font-size:var(--step-1);max-width:54ch}
+.cta-row{display:flex;flex-wrap:wrap;gap:1rem;margin-top:1.75rem}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:1.75rem}
+.badge{font:500 .75rem/1 var(--f-body);padding:8px 12px;border-radius:999px;background:var(--card);border:1px solid var(--line);color:var(--muted)}
+.hero-fig{margin:0;min-width:0;position:relative}
+.hero-fig figcaption{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 16px;margin-top:10px;font:400 .75rem/1.4 var(--f-body);color:var(--muted)}
+.hero-fig .ba{box-shadow:var(--shadow)}
+@media (max-width:860px){.hero{grid-template-columns:minmax(0,1fr)}}
+
+/* Antes / después */
+.ba{position:relative;aspect-ratio:3/2;max-width:100%;overflow:hidden;--p:50%;border:2px solid var(--ink);border-radius:14px;background:#999;touch-action:pan-y}
+.ba svg{display:block;width:100%;height:100%}
+.ba-layer{position:absolute;inset:0}
+.ba-before{clip-path:inset(0 calc(100% - var(--p)) 0 0)}
+.ba-handle{position:absolute;top:0;bottom:0;left:var(--p);width:4px;margin-left:-2px;background:var(--signal);pointer-events:none}
+.ba-handle span{position:absolute;top:50%;left:50%;width:44px;height:44px;margin:-22px 0 0 -22px;background:var(--signal);border:2px solid var(--ink);border-radius:50%;display:grid;place-items:center;font:800 .95rem/1 var(--f-display);color:var(--on-signal);letter-spacing:-.05em}
+.ba-tag{position:absolute;top:10px;padding:5px 9px;background:var(--ink);color:var(--on-ink);font:500 .6875rem/1 var(--f-body);letter-spacing:.1em;text-transform:uppercase;pointer-events:none;border-radius:4px}
+.ba-tag.b{left:10px}.ba-tag.a{right:10px}
+.ba-range{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize;-webkit-appearance:none;appearance:none;background:transparent}
+.ba:focus-within{outline:3px solid var(--ring);outline-offset:2px}
+
+/* Secciones */
+.sec{padding-block:clamp(52px,8vw,100px)}
+.sec.alt{background:var(--surface)}
+.sec-head{display:grid;gap:12px;margin-bottom:clamp(28px,4vw,48px);max-width:820px}
+.sec-head h2{font-size:var(--step-3);font-weight:800;letter-spacing:-.015em}
+.pill{display:inline-block;width:fit-content;font:500 .6875rem/1 var(--f-body);letter-spacing:.06em;text-transform:uppercase;padding:6px 9px;border:1px dashed var(--muted);color:var(--muted);border-radius:4px}
+
+/* Evidencia */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-bottom:clamp(28px,4vw,48px)}
+.fact{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;display:grid;gap:4px}
+.fact b{font:800 clamp(2.25rem,1.6rem + 2.2vw,3.25rem)/1 var(--f-display);color:var(--accent-ink)}
+.fact span{font:500 .75rem/1.3 var(--f-body);letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.finds{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.find{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;display:grid;gap:10px;align-content:start;position:relative;overflow:hidden}
+.find::before{content:"";position:absolute;inset:0 auto 0 0;width:6px;background:var(--signal)}
+.find:nth-child(2)::before{background:var(--accent)}
+.find:nth-child(3)::before{background:var(--ink)}
+.find h3{font-size:1.2rem}
+.find p{font-size:var(--step--1)}
+.quote{font-size:.875rem;color:var(--muted);border-top:1px dashed var(--line);padding-top:10px;font-style:italic}
+@media (max-width:900px){.finds{grid-template-columns:minmax(0,1fr)}}
+
+/* Pilares */
+.pillars{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-bottom:clamp(32px,5vw,56px)}
+.pillar{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;display:grid;gap:10px;align-content:start;transition:transform .2s,box-shadow .2s}
+.pillar:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.pillar svg{width:44px;height:44px}
+.pillar h3{font-size:1.15rem}
+.pillar p{font-size:var(--step--1);color:var(--muted)}
+.pillar small{font:500 .6875rem/1.4 var(--f-body);letter-spacing:.05em;text-transform:uppercase;color:var(--accent-ink)}
+@media (max-width:980px){.pillars{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.pillars{grid-template-columns:minmax(0,1fr)}}
+
+/* Tabs propuestas */
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.tab{font:500 .875rem/1.2 var(--f-body);padding:12px 18px;border-radius:999px;border:1.5px solid var(--line);background:var(--card);cursor:pointer;display:inline-flex;gap:8px;align-items:center}
+.tab span{width:22px;height:22px;border-radius:50%;background:var(--surface);display:grid;place-items:center;font-size:.75rem;font-weight:600}
+.tab[aria-selected=true]{background:var(--ink);color:var(--on-ink);border-color:var(--ink)}
+.tab[aria-selected=true] span{background:var(--signal);color:var(--on-signal)}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:clamp(20px,3vw,36px);display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(20px,3vw,40px);box-shadow:var(--shadow)}
+.panel[hidden]{display:none}
+.panel h3{font-size:clamp(1.4rem,1.2rem + 1vw,2rem);margin-block:8px 12px}
+.panel .desc{font-size:var(--step--1);color:var(--muted)}
+.attrs{display:grid;gap:12px;align-content:start}
+.attr{display:grid;grid-template-columns:auto 1fr;gap:14px;padding:14px 16px;background:var(--surface);border-radius:14px;align-items:start}
+.attr em{font:800 1.4rem/1 var(--f-display);font-style:normal;color:var(--signal)}
+.attr h4{font-size:1.02rem;margin-bottom:4px}
+.attr p{font-size:.875rem}
+@media (max-width:860px){.panel{grid-template-columns:minmax(0,1fr)}}
+
+/* Expectativas */
+.goals{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.goal{display:grid;grid-template-columns:auto 1fr;gap:16px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+.goal i{width:42px;height:42px;border-radius:12px;background:var(--accent-soft);color:var(--accent-ink);display:grid;place-items:center;font:800 1.1rem/1 var(--f-display);font-style:normal}
+.goal h3{font-size:1.1rem;margin-bottom:4px}
+.goal p{font-size:var(--step--1);color:var(--muted)}
+.ods{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}
+.ods div{flex:1 1 260px;border-radius:16px;padding:18px 20px;color:#fff;display:grid;gap:4px}
+.ods b{font:800 1.6rem/1 var(--f-display)}
+.ods span{font-size:.875rem}
+.ods .o11{background:#C2571A}.ods .o3{background:#1E7B4F}
+.route{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-top:clamp(32px,5vw,56px);counter-reset:r}
+.route li{border-top:6px solid var(--ink);padding-top:12px;display:grid;gap:4px;align-content:start;font-size:var(--step--1)}
+.route li b{font:700 1rem/1.2 var(--f-display)}
+.route li.done{border-top-color:var(--accent)}
+.route li.now{border-top-color:var(--signal)}
+.route li span{font:500 .6875rem/1 var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+@media (max-width:900px){.goals{grid-template-columns:minmax(0,1fr)}.route{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Casos */
+.cases{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,330px),1fr));gap:clamp(20px,3vw,40px)}
+.case{display:grid;gap:12px;align-content:start;min-width:0}
+.case h3{font-size:clamp(1.2rem,1.1rem + .5vw,1.45rem)}
+.case p{font-size:var(--step--1)}
+.spec{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;border-top:1px solid var(--line);padding-top:10px}
+.spec dt{font:400 .6875rem/1.2 var(--f-body);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.spec dd{font:600 .875rem/1.3 var(--f-body)}
+
+/* Foro */
+.forum{display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:clamp(24px,3.5vw,48px);align-items:start}
+@media (max-width:920px){.forum{grid-template-columns:minmax(0,1fr)}}
+.ficha{background:var(--card);border:2px solid var(--ink);border-radius:16px;overflow:hidden;position:sticky;top:90px}
+@media (max-width:920px){.ficha{position:static}}
+.ficha-top{display:flex;justify-content:space-between;gap:8px;align-items:center;padding:12px 16px;background:var(--ink);color:var(--on-ink);font:500 .75rem/1 var(--f-body);letter-spacing:.1em;text-transform:uppercase}
+.ficha-top b{width:46px;height:12px;background:repeating-linear-gradient(-45deg,var(--signal) 0 6px,var(--tape) 6px 12px);border:1px solid var(--on-ink)}
+.ficha form{display:grid;gap:14px;padding:18px 16px 20px}
+.fld{display:grid;gap:6px;min-width:0}
+.fld label{font:600 .75rem/1.3 var(--f-body);letter-spacing:.06em;text-transform:uppercase}
+.fld small{font-size:.75rem;color:var(--muted)}
+.fld .err{color:var(--danger);font:500 .75rem/1.3 var(--f-body)}
+input[type=text],select,textarea{font:400 1rem/1.4 var(--f-body);color:var(--ink);background:var(--bg);border:1.5px solid var(--muted);border-radius:8px;padding:10px 12px;width:100%;min-width:0}
+textarea{resize:vertical;min-height:112px}
+input[aria-invalid=true],select[aria-invalid=true],textarea[aria-invalid=true]{border-color:var(--danger)}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (max-width:420px){.two{grid-template-columns:minmax(0,1fr)}}
+.note{font-size:.8125rem;color:var(--muted)}
+.live{display:flex;flex-wrap:wrap;gap:8px 28px;padding-bottom:16px;border-bottom:1px solid var(--line);margin-bottom:16px}
+.live div{display:flex;align-items:baseline;gap:8px}
+.live b{font:800 clamp(1.625rem,1.4rem + 1vw,2.125rem)/1 var(--f-display);font-variant-numeric:tabular-nums}
+.live span{font:400 .75rem/1.2 var(--f-body);color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.tools{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:space-between;margin-bottom:16px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font:500 .75rem/1 var(--f-body);padding:10px 12px;border:1.5px solid var(--line);background:var(--card);cursor:pointer;border-radius:999px}
+.chip[aria-pressed=true]{background:var(--ink);color:var(--on-ink);border-color:var(--ink)}
+.sort{display:flex;align-items:center;gap:8px;font-size:.75rem;color:var(--muted)}
+.sort select{width:auto;padding:7px 10px;font-size:.875rem}
+.list{display:grid;gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;display:grid;gap:10px;min-width:0;animation:rise .4s ease both}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.card-top{display:flex;flex-wrap:wrap;gap:6px 12px;justify-content:space-between;align-items:center}
+.meta{font:400 .75rem/1.3 var(--f-body);color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+.card h3{font-size:clamp(1.1rem,1rem + .5vw,1.3rem);line-height:1.2;overflow-wrap:anywhere}
+.card p{overflow-wrap:anywhere;white-space:pre-wrap;font-size:var(--step--1)}
+.tag{display:inline-block;font:500 .75rem/1 var(--f-body);padding:5px 8px;background:var(--surface);border:1px solid var(--line);color:var(--muted);border-radius:4px}
+.st{font:600 .6875rem/1 var(--f-body);letter-spacing:.05em;text-transform:uppercase;padding:6px 9px;border:1.5px solid var(--muted);color:var(--muted);white-space:nowrap;border-radius:999px}
+.st.evaluacion{background:var(--signal-soft);border-color:var(--signal);color:var(--ink)}
+.st.equipo{background:var(--ink);border-color:var(--ink);color:var(--on-ink)}
+.st.recuperado{background:var(--accent-soft);border-color:var(--accent);color:var(--accent-ink)}
+.acts{display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center;padding-top:6px}
+.act{font:500 .8125rem/1 var(--f-body);display:inline-flex;gap:8px;align-items:center;padding:10px 14px;border:1.5px solid var(--ink);background:transparent;cursor:pointer;border-radius:999px}
+.act[aria-pressed=true]{background:var(--btn-bg);border-color:var(--btn-bg);color:#fff}
+.act.plain{border-color:var(--line)}
+.thread{display:grid;gap:10px;border-top:1px dashed var(--line);padding-top:12px}
+.reply{font-size:.875rem;display:grid;gap:2px}
+.reply .meta{text-transform:none;letter-spacing:0}
+.reply-form{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:end}
+.reply-form textarea{min-height:64px}
+.reply-form .nm{grid-column:1/-1}
+.empty{border:2px dashed var(--line);padding:32px 20px;text-align:center;color:var(--muted);display:grid;gap:6px;justify-items:center;border-radius:14px}
+.empty b{font:700 1.25rem/1.2 var(--f-display);color:var(--ink)}
+
+/* Fotos */
+.drop{display:grid;gap:8px;justify-items:start}
+.file-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border:1.5px dashed var(--muted);border-radius:10px;background:var(--bg);cursor:pointer;font:500 .875rem/1.2 var(--f-body);width:100%;justify-content:center}
+.file-btn:hover{border-color:var(--accent);color:var(--accent-ink)}
+.file-btn input{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+.file-btn:focus-within{outline:3px solid var(--ring);outline-offset:2px}
+.prev{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;width:100%}
+.prev:empty{display:none}
+.thumb{position:relative;aspect-ratio:1;border-radius:10px;overflow:hidden;border:1px solid var(--line)}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.thumb button{position:absolute;top:4px;right:4px;width:26px;height:26px;border-radius:50%;border:0;background:var(--ink);color:var(--on-ink);cursor:pointer;font:700 .9rem/1 var(--f-body);display:grid;place-items:center}
+.photos{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px}
+.photos button{padding:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;cursor:zoom-in;background:var(--surface);aspect-ratio:4/3}
+.photos img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .25s}
+.photos button:hover img{transform:scale(1.05)}
+dialog#lb{border:0;padding:0;background:transparent;max-width:min(94vw,900px)}
+dialog#lb::backdrop{background:rgba(10,16,22,.8)}
+dialog#lb img{display:block;max-width:100%;max-height:82vh;margin:auto;border-radius:12px}
+dialog#lb button{display:block;margin:12px auto 0}
+
+/* Equipo */
+.team{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px}
+.member{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px 18px;text-align:center;display:grid;gap:6px;justify-items:center}
+.avatar{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;font:800 1.3rem/1 var(--f-display);color:#fff;margin-bottom:6px}
+.member b{font:700 1rem/1.2 var(--f-display)}
+.member span{font-size:.8125rem;color:var(--muted)}
+
+/* Aliados */
+.allies{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:start}
+@media (max-width:920px){.allies{grid-template-columns:minmax(0,1fr)}}
+.ally-group+.ally-group{margin-top:28px}
+.ally-group h3{font:700 .8125rem/1 var(--f-display);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.ally-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.ally{min-height:96px;border:1.5px solid var(--ink);background:var(--card);display:grid;place-items:center;padding:12px;text-align:center;font:700 1.0625rem/1.2 var(--f-display);border-radius:12px}
+.ally.ph{border:1.5px dashed var(--muted);background:transparent;color:var(--muted);font:400 .75rem/1.4 var(--f-body)}
+
+.foot{padding-block:32px 44px;display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between;color:var(--muted);font-size:.875rem}
+.toast{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);max-width:min(92vw,520px);background:var(--ink);color:var(--on-ink);padding:12px 16px;font:500 .875rem/1.4 var(--f-body);border-left:6px solid var(--signal);border-radius:8px;z-index:50}
+.toast[hidden]{display:none}
+
+/* Aparición al scroll */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.btn,.pillar,.card{transition:none;animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#inicio"><i></i>Espacio Común</a>
+    <nav class="nav-links" aria-label="Secciones">
+      <a href="#problema">El problema</a>
+      <a href="#atributos">Atributos</a>
+      <a href="#esperamos">Qué esperamos</a>
+      <a href="#antes-despues">Antes y después</a>
+      <a href="#foro">Reportar</a>
+      <a href="#equipo">Equipo</a>
+    </nav>
+    <button class="theme" id="theme" type="button" aria-label="Cambiar entre tema claro y oscuro">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="hero-bg" id="inicio">
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <h1>Ese rincón abandonado puede volver a ser <span class="mark">de todos</span>.</h1>
+        <p class="lead">Transformamos esquinas deterioradas en puntos de encuentro, reciclaje y cuidado, diseñados junto a quienes viven ahí. Y tú puedes sumarte reportando los lugares de tu barrio.</p>
+        <div class="cta-row">
+          <a class="btn" href="#atributos">Conocer la propuesta</a>
+          <a class="btn btn--ocre" href="#foro">Reportar un lugar</a>
+        </div>
+        <div class="badges">
+          <span class="badge">FCFM · Universidad de Chile</span>
+          <span class="badge">Equipo 11 · Manva's</span>
+          <span class="badge">ODS 11 · Ciudades sostenibles</span>
+        </div>
+      </div>
+      <figure class="hero-fig" id="hero-fig">
+        <figcaption><span>Arrastra para ver el cambio</span><span>Ilustración de ejemplo</span></figcaption>
+      </figure>
+    </section>
+  </main>
+</div>
+<div class="tape" role="presentation"></div>
+
+<!-- EL PROBLEMA -->
+<section class="sec" id="problema">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Lo que encontramos en terreno</p>
+      <h2>No es solo basura: es un espacio que <span class="mark">nadie siente suyo</span></h2>
+      <p>Observamos la calle, conversamos con vecinos y cruzamos lo que vimos con la teoría. La conclusión cambió el enfoque del proyecto.</p>
+    </div>
+    <div class="finds">
+      <article class="find rv">
+        <p class="eyebrow">Hallazgo 1</p>
+        <h3>La limpieza municipal no alcanza</h3>
+        <p>El camión retira la basura, pero los residuos vuelven a juntarse en los mismos puntos. La solución es temporal porque el espacio sigue igual.</p>
+        <p class="quote">Un espacio abandonado se convierte rápido en microbasural.</p>
+      </article>
+      <article class="find rv">
+        <p class="eyebrow">Hallazgo 2</p>
+        <h3>Se perdió la apropiación del lugar</h3>
+        <p>Fachadas cerradas, muros altos y poca vida de barrio generan zonas sin vigilancia natural, justo donde se acumula el deterioro.</p>
+        <p class="quote">Nadie siente pertenencia ni se organiza para cuidar el entorno.</p>
+      </article>
+      <article class="find rv">
+        <p class="eyebrow">Hallazgo 3</p>
+        <h3>Los vecinos cambian su vida</h3>
+        <p>Adultos mayores y familias con niños evitan ciertos tramos, modifican sus rutas y pasan más tiempo encerrados en casa.</p>
+        <p class="quote">Un espacio iluminado y transitado disuade de forma natural el deterioro.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="tape" role="presentation"></div>
+
+<!-- ATRIBUTOS -->
+<section class="sec alt" id="atributos">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Nuestra solución</p>
+      <h2>Cuatro ideas que guían <span class="mark g">todo lo que diseñamos</span></h2>
+      <p>Cada una de nuestras cinco propuestas tiene sus propios atributos. Al compararlas aparecen cuatro pilares que se repiten.</p>
+    </div>
+    <div class="pillars" id="pillars"></div>
+
+    <div class="sec-head rv" style="margin-bottom:20px">
+      <h2 style="font-size:var(--step-1)">Explora las cinco propuestas</h2>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Propuestas" id="tabs"></div>
+    <div id="panels"></div>
+  </div>
+</section>
+
+<!-- QUÉ ESPERAMOS -->
+<section class="sec" id="esperamos">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Qué esperamos del proyecto</p>
+      <h2>Un lugar más limpio, más seguro y <span class="mark">más usado</span></h2>
+      <p>No buscamos instalar infraestructura y olvidarla. Buscamos que el cambio dure porque los vecinos lo hacen suyo.</p>
+    </div>
+    <div class="goals">
+      <div class="goal rv"><i>1</i><div><h3>Menos acumulación de residuos</h3><p>Puntos de reciclaje señalizados y contenedores cerrados que eviten basura dispersa en la vía pública.</p></div></div>
+      <div class="goal rv"><i>2</i><div><h3>Más vida en la esquina</h3><p>Bancas, plantas e iluminación que inviten a quedarse, para generar vigilancia natural.</p></div></div>
+      <div class="goal rv"><i>3</i><div><h3>Cuidado compartido</h3><p>Vecinos con tareas concretas de mantención, para que el espacio no dependa solo de limpiezas externas.</p></div></div>
+      <div class="goal rv"><i>4</i><div><h3>Trabajo coordinado</h3><p>Colaboración con la municipalidad y organizaciones aliadas para sostener la operación en el tiempo.</p></div></div>
+    </div>
+    <div class="ods rv">
+      <div class="o11"><b>ODS 11</b><span>Ciudades y comunidades sostenibles</span></div>
+      <div class="o3"><b>ODS 3</b><span>Salud y bienestar: mejores condiciones sanitarias y de seguridad percibida</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="tape" role="presentation"></div>
+
+<!-- ANTES Y DESPUÉS -->
+<section class="sec alt" id="antes-despues">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Antes y después</p>
+      <h2>Arrastra y mira <span class="mark">el cambio</span></h2>
+      <p>Ejemplos de cómo se vería una recuperación. Cada uno muestra el mismo ángulo antes y después de la intervención.</p>
+      <span class="pill">Ilustraciones de ejemplo, reemplazables por los bocetos del equipo</span>
+    </div>
+    <div class="cases" id="cases"></div>
+  </div>
+</section>
+
+<!-- FORO -->
+<section class="sec" id="foro">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">El foro</p>
+      <h2>Lugares que esperan <span class="mark">una mano</span></h2>
+      <p>Cuéntanos qué plaza, cancha, escalera o vereda está descuidada. Apoya los reportes que te importan y sigue su estado.</p>
+      <span class="pill">Demostración: los reportes se guardan solo en tu navegador</span>
+    </div>
+    <div class="forum">
+      <aside class="ficha" aria-labelledby="ficha-t">
+        <div class="ficha-top"><span id="ficha-t">Ficha de reporte</span><b></b></div>
+        <form id="rep-form" novalidate>
+          <div class="fld"><label for="f-title">Nombre del lugar</label><input type="text" id="f-title" maxlength="80" placeholder="Ej: Esquina de calle Viollier" autocomplete="off"><span class="err" id="e-title" hidden></span></div>
+          <div class="two">
+            <div class="fld"><label for="f-kind">Tipo</label><select id="f-kind"><option value="">Elegir…</option><option>Plaza</option><option>Cancha o multicancha</option><option>Vereda o pasaje</option><option>Parque o área verde</option><option>Escalera o mirador</option><option>Esquina o rincón</option><option>Otro</option></select><span class="err" id="e-kind" hidden></span></div>
+            <div class="fld"><label for="f-comuna">Comuna</label><input type="text" id="f-comuna" maxlength="40" placeholder="Ej: Santiago" autocomplete="off"><span class="err" id="e-comuna" hidden></span></div>
+          </div>
+          <div class="fld"><label for="f-problem">Problema principal</label><select id="f-problem"><option>Basura y escombros</option><option>Iluminación deficiente</option><option>Mobiliario roto o robado</option><option>Sin áreas verdes ni riego</option><option>Veredas y pavimento dañados</option><option>Grafitis y deterioro</option><option>Inseguridad</option></select></div>
+          <div class="fld"><label for="f-body">Qué está pasando</label><textarea id="f-body" maxlength="600" placeholder="Dónde queda, desde cuándo está así, qué se necesita."></textarea><span class="err" id="e-body" hidden></span><small>Entre 10 y 600 caracteres.</small></div>
+          <div class="fld"><label for="f-photo">Fotos del lugar <span style="text-transform:none;letter-spacing:0">(opcional, hasta 3)</span></label>
+            <div class="drop">
+              <label class="file-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg><span>Agregar fotos</span><input type="file" id="f-photo" accept="image/*" multiple></label>
+              <div class="prev" id="prev"></div>
+            </div>
+            <span class="err" id="e-photo" hidden></span>
+          </div>
+          <div class="fld"><label for="f-name">Tu nombre o junta de vecinos <span style="text-transform:none;letter-spacing:0">(opcional)</span></label><input type="text" id="f-name" maxlength="40" autocomplete="name"></div>
+          <button class="btn" type="submit">Enviar lugar al equipo</button>
+        </form>
+      </aside>
+      <div style="min-width:0">
+        <div class="live" aria-label="Resumen del foro">
+          <div><b id="n-total">0</b><span>Lugares reportados</span></div>
+          <div><b id="n-equipo">0</b><span>Con equipo en camino</span></div>
+          <div><b id="n-rec">0</b><span>Recuperados</span></div>
+        </div>
+        <div class="tools">
+          <div class="chips" id="chips" role="group" aria-label="Filtrar por estado"></div>
+          <label class="sort">Ordenar<select id="sort"><option value="apoyos">Más apoyados</option><option value="recientes">Más recientes</option></select></label>
+        </div>
+        <div class="list" id="list" aria-live="polite"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="tape" role="presentation"></div>
+
+<!-- EQUIPO -->
+<section class="sec alt" id="equipo">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Quiénes somos</p>
+      <h2>Equipo <span class="mark g">Manva's</span></h2>
+      <p>Cinco estudiantes de la FCFM, Universidad de Chile, en el curso CD1201 Proyecto de Innovación en Ingeniería y Ciencias.</p>
+    </div>
+    <div class="team" id="team"></div>
+  </div>
+</section>
+
+<!-- ALIADOS -->
+<section class="sec" id="aliados">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Aliados</p>
+      <h2>Municipalidades y marcas <span class="mark g">que se suman</span></h2>
+      <p>Cuando una municipalidad o una marca colabora, su nombre aparece aquí. La coordinación con el municipio es clave para que el cambio dure.</p>
+    </div>
+    <div class="allies">
+      <div>
+        <div class="ally-group"><h3>Municipalidades</h3><div class="ally-grid" id="al-muni"></div></div>
+        <div class="ally-group"><h3>Marcas y empresas</h3><div class="ally-grid" id="al-marca"></div></div>
+      </div>
+      <aside class="ficha">
+        <div class="ficha-top"><span>Súmate como aliado</span><b></b></div>
+        <form id="al-form" novalidate>
+          <div class="fld"><label for="a-org">Organización</label><input type="text" id="a-org" maxlength="80" autocomplete="organization"><span class="err" id="e-org" hidden></span></div>
+          <div class="fld"><label for="a-kind">Tipo</label><select id="a-kind"><option>Municipalidad</option><option>Marca o empresa</option><option>Otra organización</option></select></div>
+          <div class="fld"><label for="a-contact">Correo o teléfono de contacto</label><input type="text" id="a-contact" maxlength="80" autocomplete="off"><span class="err" id="e-contact" hidden></span></div>
+          <div class="fld"><label for="a-msg">Qué te gustaría hacer</label><textarea id="a-msg" maxlength="500"></textarea></div>
+          <button class="btn" type="submit">Enviar solicitud</button>
+          <p class="note">Demostración: la solicitud no se envía a ningún servidor.</p>
+        </form>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<div class="tape" role="presentation"></div>
+<footer class="wrap foot">
+  <span><b style="color:var(--ink)">Espacio Común</b> · Recuperamos espacios públicos junto a los vecinos.</span>
+  <span>CD1201 · FCFM, Universidad de Chile · Semestre 2026-2</span>
+</footer>
+<dialog id="lb" aria-label="Foto ampliada"><img alt="Foto ampliada del lugar reportado"><button type="button" class="btn btn-sm" id="lb-x">Cerrar</button></dialog>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>
+(function(){
+'use strict';
+var $=function(s,r){return (r||document).querySelector(s)};
+function h(tag,props){
+  var el=document.createElement(tag);
+  if(props){for(var k in props){var v=props[k];if(v==null||v===false)continue;
+    if(k==='class')el.className=v;
+    else if(k==='text')el.textContent=v;
+    else if(k.slice(0,2)==='on')el.addEventListener(k.slice(2),v);
+    else el.setAttribute(k,v===true?'':v);}}
+  for(var i=2;i<arguments.length;i++){var kid=arguments[i];
+    (Array.isArray(kid)?kid:[kid]).forEach(function(c){if(c==null||c===false)return;el.append(c.nodeType?c:document.createTextNode(c));});}
+  return el;
+}
+
+/* ---------- Ilustraciones (antes / después) ---------- */
+var R=function(x,y,w,hh,f,e){return '<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+hh+'" fill="'+f+'" '+(e||'')+'/>'};
+var C=function(x,y,r,f,e){return '<circle cx="'+x+'" cy="'+y+'" r="'+r+'" fill="'+f+'" '+(e||'')+'/>'};
+var E=function(x,y,rx,ry,f,e){return '<ellipse cx="'+x+'" cy="'+y+'" rx="'+rx+'" ry="'+ry+'" fill="'+f+'" '+(e||'')+'/>'};
+var P=function(d,f,e){return '<path d="'+d+'" fill="'+f+'" '+(e||'')+'/>'};
+var L=function(d,s,w,e){return '<path d="'+d+'" fill="none" stroke="'+s+'" stroke-width="'+w+'" stroke-linecap="round" stroke-linejoin="round" '+(e||'')+'/>'};
+var G=function(pts,f){return '<polygon points="'+pts+'" fill="'+f+'"/>'};
+function sun(a){return a?C(520,64,32,'#FFD84D')+E(120,60,50,16,'#fff','opacity=".9"')+E(160,52,34,13,'#fff','opacity=".9"')+E(390,92,44,13,'#fff','opacity=".85"'):''}
+function tuft(x,y,c){return L('M'+x+' '+y+' l-5 -12 M'+x+' '+y+' l2 -14 M'+x+' '+y+' l8 -9',c,2)}
+
+function plaza(a){
+  var s='';
+  if(!a){
+    s+=R(0,0,600,400,'#C9CCC4')+R(0,150,90,90,'#A9ADA6')+R(90,175,70,65,'#B2B5AD')+R(160,140,110,100,'#A3A7A0')+R(270,170,80,70,'#B2B5AD')+R(350,130,120,110,'#A9ADA6')+R(470,160,130,80,'#A3A7A0');
+    s+=R(0,230,600,170,'#8E7F66')+E(110,330,90,22,'#7A6C55')+E(500,360,80,18,'#7A6C55')+E(300,250,60,8,'#7A6C55');
+    s+=G('250,400 300,300 345,300 420,400','#A39B8C')+L('M300 400 L318 340 L305 310','#6F675B',2.5)+L('M360 400 L345 350','#6F675B',2.5);
+    for(var i=0;i<14;i++){s+=tuft(20+i*42+(i%3)*9,262+(i*37)%120,'#A89A5E')}
+    var bare=function(x,y,hh){return L('M'+x+' '+y+' L'+x+' '+(y-hh),'#4B3F32',7)+L('M'+x+' '+(y-hh*.5)+' L'+(x-30)+' '+(y-hh*.8)+' M'+x+' '+(y-hh*.7)+' L'+(x+34)+' '+(y-hh*.95)+' M'+x+' '+(y-hh)+' L'+(x-14)+' '+(y-hh-26)+' M'+x+' '+(y-hh)+' L'+(x+16)+' '+(y-hh-30),'#4B3F32',4)};
+    s+=bare(90,290,150)+bare(545,300,160);
+    s+=R(380,195,140,70,'#B3A99A')+L('M395 240 q15 -30 30 0 t30 0 t30 0 t30 0','#7E4B8F',5);
+    s+=G('170,318 250,310 252,322 172,330','#7A5B3A')+L('M180 330 L176 352 M244 322 L250 350','#4A4A4A',4)+L('M172 312 L168 280 L250 272','#7A5B3A',5);
+    s+=L('M455 335 L478 150','#5A5A5A',6)+R(465,140,30,12,'#777','transform="rotate(15 480 146)"');
+    s+=P('M300 335 l12 -8 l10 6 l-4 12 z','#8A8F94')+C(330,345,7,'#C0B28A')+P('M205 360 l14 -6 l8 8 l-10 8 z','#6B8FA6')+C(250,372,6,'#9a9a9a');
+  }else{
+    s+=R(0,0,600,400,'#BFE4F0')+sun(true)+R(0,150,90,90,'#9DB8C4')+R(90,175,70,65,'#E3B98E')+R(160,140,110,100,'#8FB0A5')+R(270,170,80,70,'#E8C9A0')+R(350,130,120,110,'#9DB8C4')+R(470,160,130,80,'#C9A9B8');
+    s+=R(0,230,600,170,'#79BD5F')+E(110,330,100,24,'#8CCB6F')+E(500,360,90,20,'#8CCB6F')+E(300,255,70,9,'#8CCB6F');
+    s+=P('M250 400 C265 340 310 295 380 232 L418 232 C355 292 340 340 358 400 Z','#E3D6BC');
+    var tree=function(x,y,r){return R(x-6,y-r*1.3,12,r*1.3,'#7A5230')+C(x,y-r*1.6,r,'#3E9B54')+C(x-r*.6,y-r*1.25,r*.7,'#4FB065')+C(x+r*.6,y-r*1.3,r*.7,'#4FB065')};
+    s+=tree(90,292,44)+tree(545,302,48);
+    s+=R(380,195,140,70,'#F4E3C5')+C(410,230,16,'#E85D75')+P('M435 262 L455 215 L478 262 Z','#2E7BA8')+C(500,225,12,'#F2C200')+L('M385 255 q30 -22 60 0','#3E9B54',4);
+    s+=G('170,318 250,310 252,317 172,325','#B9763C')+G('170,327 252,319 253,326 172,334','#C98445')+G('170,296 250,288 251,296 171,304','#B9763C')+G('171,306 251,298 252,305 172,313','#C98445')+L('M180 334 L178 356 M246 326 L248 352 M176 322 L173 298 M246 314 L245 290','#3B3B3B',4);
+    s+=L('M470 345 L470 150','#3B4A55',6)+R(455,138,32,12,'#3B4A55')+E(471,162,50,40,'#FFE9A3','opacity=".35"');
+    s+=R(545,325,26,34,'#2F8F58')+R(542,321,32,6,'#256F44');
+    var fl=[[40,360,'#F28BB0'],[70,372,'#F2C200'],[110,366,'#F28BB0'],[150,380,'#fff'],[430,372,'#F2C200'],[470,382,'#F28BB0'],[505,368,'#fff'],[290,370,'#F2C200'],[330,382,'#F28BB0']];
+    fl.forEach(function(f){s+=C(f[0],f[1],5,f[2])+L('M'+f[0]+' '+(f[1]+5)+' v10','#2F8F58',2)});
+  }
+  return s;
+}
+
+function cancha(a){
+  var s='';
+  if(!a){
+    s+=R(0,0,600,400,'#C9CCC4')+R(0,110,120,100,'#A9ADA6')+R(120,130,100,80,'#B2B5AD')+R(380,100,110,110,'#A3A7A0')+R(490,130,110,80,'#A9ADA6');
+    s+=R(0,205,600,195,'#85887F')+G('50,400 550,400 470,235 130,235','#8D9091');
+    s+=L('M130 235 L50 400 M470 235 L550 400 M50 400 L550 400 M300 235 L300 400','#B0B3B3',3,'opacity=".5"');
+    s+=L('M200 400 L230 340 L215 300 L240 260','#4F5355',2.5)+L('M400 400 L380 350 L410 300','#4F5355',2.5)+L('M320 400 L335 365','#4F5355',2.5);
+    s+=L('M20 150 L20 235 M120 150 L120 232 M500 150 L500 232 M580 150 L580 235','#6E7174',5)+L('M20 160 L120 170 M500 170 L580 158 M20 205 L120 200','#6E7174',3);
+    s+=L('M300 235 L300 140','#6B6B6B',7)+R(268,120,64,44,'#A8A39A')+L('M280 125 l12 18 l-6 12','#555',2)+L('M290 168 q10 8 22 -2','#B0482A',4);
+    for(var i=0;i<12;i++){s+=tuft(30+i*48+(i%2)*10,230+(i*29)%160,'#7E8F4A')}
+    s+=P('M90 380 l14 -6 l8 8 l-10 8 z','#6B8FA6')+C(470,385,7,'#9a9a9a')+C(520,370,6,'#C0B28A');
+  }else{
+    s+=R(0,0,600,400,'#BFE4F0')+sun(true)+R(0,110,120,100,'#9DB8C4')+R(120,130,100,80,'#E3B98E')+R(380,100,110,110,'#8FB0A5')+R(490,130,110,80,'#C9A9B8');
+    s+=R(0,205,600,195,'#79BD5F')+G('30,400 570,400 485,228 115,228','#3E9B54')+G('50,400 550,400 470,235 130,235','#2E7BA8');
+    s+=L('M130 235 L50 400 M470 235 L550 400 M50 400 L550 400 M300 235 L300 400','#fff',3)+E(300,330,60,17,'none','stroke="#fff" stroke-width="3"');
+    s+=L('M20 155 L20 235 M120 155 L120 232 M500 155 L500 232 M580 155 L580 235 M240 150 L240 205 M360 150 L360 205','#2F4B3A',5)+L('M0 160 H600','#2F4B3A',3);
+    s+=L('M300 235 L300 140','#3B4A55',7)+R(268,120,64,44,'#fff','stroke="#3B4A55" stroke-width="3"')+R(288,136,24,18,'none','stroke="#E4572E" stroke-width="3"')+L('M288 168 H312','#E4572E',4);
+    s+=L('M290 170 l5 20 M297 171 l3 20 M303 171 l-3 20 M310 170 l-5 20 M292 188 H308','#fff',2);
+    s+=C(210,372,13,'#E4572E')+L('M197 372 q13 -8 26 0 M210 359 v26','#7A2A12',1.5);
+  }
+  return s;
+}
+
+function pasaje(a){
+  var s='',top=function(x){return 20+x*0.4815},bot=function(x){return 320-x*0.426};
+  s+=R(0,0,600,400,a?'#BFE4F0':'#C9CCC4')+sun(a);
+  s+=R(270,150,60,55,a?'#CDE3EA':'#B9BCB4');
+  s+=G('0,20 270,150 270,205 0,320',a?'#E8C9A0':'#A3A096')+G('330,150 600,20 600,320 330,205',a?'#9DB8C4':'#9A978D');
+  var wf=a?'#CDEBF5':'#6C7378';
+  [30,100,170].forEach(function(x0){
+    var x1=x0+36,h0=bot(x0)-top(x0),h1=bot(x1)-top(x1);
+    var pts=function(m){return (m(x0))+','+(top(x0)+h0*.25)+' '+(m(x1))+','+(top(x1)+h1*.25)+' '+(m(x1))+','+(top(x1)+h1*.55)+' '+(m(x0))+','+(top(x0)+h0*.55)};
+    s+=G(pts(function(x){return x}),wf)+G(pts(function(x){return 600-x}),wf);
+  });
+  s+=G('285,210 315,210 420,400 180,400',a?'#4B4F54':'#6D6F72');
+  s+=G('0,320 270,205 285,210 180,400 0,400',a?'#D9D4C7':'#B1AFA6')+G('330,205 600,320 600,400 420,400 315,210',a?'#D9D4C7':'#B1AFA6');
+  if(!a){
+    s+=L('M0 40 Q150 120 300 100 T600 30','#2F3235',2.5);
+    s+=L('M40 360 L120 330 L170 300 M80 395 L130 350 M560 380 L470 340 L400 290','#6F6D66',2);
+    s+=E(300,330,30,9,'#3A3C3E')+E(340,285,16,5,'#3A3C3E')+E(285,262,9,3,'#3A3C3E');
+    s+=E(60,370,22,16,'#222')+E(95,386,16,11,'#2c2c2c')+E(540,378,20,14,'#222');
+    s+=L('M240 285 L236 160','#555',5)+R(225,150,26,10,'#777','transform="rotate(-8 238 155)"');
+  }else{
+    s+=L('M300 215 L300 400','#F2C200',3,'stroke-dasharray="14 18"');
+    for(var k=-2;k<=2;k++){s+=G((300+k*28-8)+',330 '+(300+k*28+8)+',330 '+(300+k*34+10)+',364 '+(300+k*34-10)+',364','#fff')}
+    s+=L('M283 211 L178 398 M317 211 L422 398','#F2C200',4);
+    var tree=function(x,y,r){return R(x-5,y-r*1.4,10,r*1.4,'#7A5230')+C(x,y-r*1.7,r,'#3E9B54')+C(x-r*.55,y-r*1.3,r*.7,'#4FB065')+C(x+r*.55,y-r*1.35,r*.7,'#4FB065')};
+    s+=tree(150,345,26)+tree(450,345,26)+tree(222,270,16)+tree(378,270,16);
+    [[240,285],[360,285]].forEach(function(p){s+=L('M'+p[0]+' '+p[1]+' L'+p[0]+' 150','#3B4A55',5)+R(p[0]-13,140,26,10,'#3B4A55')+E(p[0],168,30,26,'#FFE9A3','opacity=".4"')});
+  }
+  return s;
+}
+
+function escalera(a){
+  var s='';
+  s+=R(0,0,600,400,a?'#BFE4F0':'#C9CCC4')+sun(a);
+  s+=G('0,0 150,60 150,330 0,400',a?'#E8C9A0':'#9A978D')+G('600,0 450,60 450,330 600,400',a?'#9DB8C4':'#8F8C82');
+  var pal=['#E4572E','#F2C200','#2E7BA8','#3E9B54','#E85D75','#7A4FA0'];
+  for(var i=0;i<10;i++){
+    var y=330-(i+1)*27;
+    if(a){s+=R(150,y,300,27,pal[i%6])+R(150,y+19,300,8,'#000','opacity=".18"')}
+    else{s+=R(150,y,300,27,i%2?'#8E9092':'#9A9C9D')+R(150,y+19,300,8,'#5F6264','opacity=".55"')}
+  }
+  s+=R(0,330,600,70,a?'#CFC8B8':'#85887F');
+  if(!a){
+    s+=L('M200 300 L220 270 L205 250 M380 230 L360 205 L375 185','#4F5355',2.5);
+    s+=tuft(180,325,'#7E8F4A')+tuft(430,325,'#7E8F4A')+tuft(260,215,'#7E8F4A')+tuft(40,385,'#7E8F4A')+tuft(560,385,'#7E8F4A');
+    s+=L('M20 150 q20 -30 40 0 t40 0','#7E4B8F',5)+L('M480 160 q25 25 45 0 t35 -8','#2c2c2c',5)+L('M150 330 L150 60','#6E7174',4,'stroke-dasharray="40 24"');
+    s+=P('M300 360 l14 -6 l8 8 l-10 8 z','#6B8FA6')+C(350,372,7,'#9a9a9a');
+  }else{
+    s+=C(60,185,28,'#F2C200')+P('M10 270 Q70 205 130 255 L130 305 L10 340Z','#3E9B54')+C(100,135,12,'#E85D75')+L('M20 120 q25 -25 50 0','#2E7BA8',5);
+    s+=C(540,170,24,'#E85D75')+P('M470 280 Q530 215 585 270 L585 320 L470 300Z','#2E7BA8')+C(500,120,10,'#F2C200')+L('M470 215 q30 -30 60 0','#fff',4);
+    s+=L('M150 330 L150 60 M450 330 L450 60','#2E7BA8',5);
+    [[40,352],[560,352]].forEach(function(p){s+=R(p[0]-14,p[1],28,26,'#B9763C')+C(p[0],p[1]-6,18,'#3E9B54')+C(p[0]-9,p[1]-14,9,'#4FB065')});
+  }
+  return s;
+}
+var SCENES={plaza:plaza,cancha:cancha,pasaje:pasaje,escalera:escalera};
+function scene(kind,a){return '<svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid slice">'+SCENES[kind](a)+'</svg>'}
+
+function slider(kind,label,start){
+  var wrap=h('div',{class:'ba'});
+  wrap.style.setProperty('--p',(start||50)+'%');
+  var after=h('div',{class:'ba-layer'}),before=h('div',{class:'ba-layer ba-before'});
+  after.innerHTML=scene(kind,true);before.innerHTML=scene(kind,false);
+  var range=h('input',{type:'range',min:'0',max:'100',value:String(start||50),class:'ba-range','aria-label':'Comparar antes y después de '+label});
+  range.addEventListener('input',function(){wrap.style.setProperty('--p',range.value+'%')});
+  wrap.append(after,before,
+    h('span',{class:'ba-tag b',text:'Antes'}),h('span',{class:'ba-tag a',text:'Después'}),
+    h('div',{class:'ba-handle'},h('span',{text:'<>'})),range);
+  return wrap;
+}
+
+
+
+/* ---------- Tema ---------- */
+(function(){
+  var root=document.documentElement;
+  try{var t=localStorage.getItem('ec_theme');if(t)root.setAttribute('data-theme',t)}catch(e){}
+  $('#theme').addEventListener('click',function(){
+    var dark=root.getAttribute('data-theme')==='dark'||(!root.getAttribute('data-theme')&&matchMedia('(prefers-color-scheme: dark)').matches);
+    var next=dark?'light':'dark';root.setAttribute('data-theme',next);
+    try{localStorage.setItem('ec_theme',next)}catch(e){}
+  });
+})();
+
+/* ---------- Hero y casos ---------- */
+$('#hero-fig').prepend(slider('plaza','una plaza recuperada',50));
+var CASES=[
+  {kind:'cancha',name:'Zona de juego y deporte',m2:'Multicancha',dias:'Modular',vol:'Familias',desc:'Superficie reparada, aros y mallas nuevas: un lugar para que los niños vuelvan a jugar cerca de casa.'},
+  {kind:'pasaje',name:'Pasaje iluminado y arbolado',m2:'Pasaje',dias:'Con luz',vol:'Todo público',desc:'Veredas ordenadas, luminarias y árboles que invitan a caminar a cualquier hora.'},
+  {kind:'escalera',name:'Escalera con mural vecinal',m2:'Escalera',dias:'Con color',vol:'Con el barrio',desc:'Peldaños reparados y pintados, barandas nuevas y un mural hecho con quienes viven ahí.'}
+];
+CASES.forEach(function(c){
+  $('#cases').append(h('article',{class:'case rv'},
+    slider(c.kind,c.name,50),h('h3',{text:c.name}),h('p',{text:c.desc}),
+    h('dl',{class:'spec'},
+      h('div',null,h('dt',{text:'Espacio'}),h('dd',{text:c.m2})),
+      h('div',null,h('dt',{text:'Diseño'}),h('dd',{text:c.dias})),
+      h('div',null,h('dt',{text:'Para'}),h('dd',{text:c.vol})))));
+});
+
+/* ---------- Pilares ---------- */
+var ICON={
+  com:'<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="18" r="6"/><circle cx="34" cy="18" r="6"/><path d="M4 40c0-7 5-12 12-12s12 5 12 12M24 40c1-6 5-10 10-10 6 0 10 4 10 10"/></svg>',
+  acc:'<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="18"/><path d="M24 12v24M12 24h24"/></svg>',
+  sus:'<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 38C10 20 22 10 40 10c0 18-10 30-26 30"/><path d="M10 38c6-10 12-16 20-20"/></svg>',
+  seg:'<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M24 5l15 6v11c0 10-6 17-15 21C15 39 9 32 9 22V11z"/><path d="M17 24l5 5 9-10"/></svg>'
+};
+var PILLARS=[
+  ['com','Comunitario','Un espacio compartido por quienes viven y pasan por la calle, con identidad de barrio.','Colectivo · Comunitaria · Identidad barrial','#2A9D8F'],
+  ['acc','Accesible','Abierto a todo público y a todas las edades, sin barreras para usarlo ni para cuidarlo.','Accesible · Accesibilidad','#1B5FD1'],
+  ['sus','Sustentable','Reciclaje, materiales reutilizados y bajo consumo para una intervención de bajo impacto.','Sostenibilidad · Orden y reciclaje','#3E9B54'],
+  ['seg','Seguro','Más personas usando el lugar significa más ojos cuidándolo: vigilancia natural.','Seguridad · Vigilancia natural','#C2571A']
+];
+PILLARS.forEach(function(p,i){
+  var ic=h('div');ic.innerHTML=ICON[p[0]];ic.style.color=p[4];
+  $('#pillars').append(h('article',{class:'pillar rv',style:'transition-delay:'+(i*80)+'ms'},ic,h('h3',{text:p[1]}),h('p',{text:p[2]}),h('small',{text:p[3]})));
+});
+
+/* ---------- Propuestas (tabs) ---------- */
+var PROPS=[
+  {t:'Punto de encuentro',s:'Espacio versátil con reciclaje, descanso y plantas',d:'Un espacio reducido con muchos usos al mismo tiempo: reciclaje, descanso, reuniones y cuidado de plantas, en distintos módulos del sector.',a:[['Versátil','Reúne varias actividades en un espacio pequeño, usadas a la vez por distintas personas.'],['Accesible','Cualquier persona, no solo la comunidad Viollier, puede descansar o reciclar ahí.'],['Colectivo','Sirve para reuniones sobre el estado del sector o simple convivencia vecinal.']]},
+  {t:'Cuidado vecinal',s:'Rincón cuidado por quienes lo usan',d:'Riego, mantención y convivencia en manos de los vecinos: del abandono de la esquina a un lugar con responsables directos.',a:[['Durabilidad','Genera responsables directos que mantienen y cuidan la zona recuperada.'],['Accesibilidad','Infraestructura pensada para todas las edades, así cualquiera puede hacerse cargo.'],['Seguridad','El uso constante y la circulación de personas eliminan las zonas inseguras.']]},
+  {t:'Mobiliario modular',s:'Bancas y jardineras que se reconfiguran',d:'Mobiliario modular de bajo impacto, con riego pasivo y materiales reutilizados, que dialoga con la arquitectura de la calle.',a:[['Sostenibilidad','Materiales de bajo impacto, elementos reutilizados y sistemas de bajo consumo.'],['Adaptabilidad','Los módulos se expanden, se contraen o cambian de función sin una gran inversión.'],['Identidad barrial','Se mimetiza con la estética del sector y da sentido de pertenencia inmediato.']]},
+  {t:'Zona mascotas',s:'Bolsas, agua y reciclaje en un solo punto',d:'Una zona para quienes pasean a sus mascotas, con dispensadores de bolsas, basureros y reciclaje que mantienen el lugar limpio y ordenado.',a:[['Funcional','Convierte un espacio abandonado en un lugar con propósito y varias funciones.'],['Sustentable','Infraestructura de reciclaje, áreas verdes y manejo adecuado de desechos.'],['Comunitaria','Pensada para el uso diario de vecinos y de quienes transitan por el sector.']]},
+  {t:'Mural y reciclaje',s:'Arte, bancas, luz y contenedores señalizados',d:'Un mural hecho con el barrio, puntos de reciclaje cerrados, bancas, iluminación y zonas verdes en la misma esquina.',a:[['Valor estético','El mural cambia la percepción del espacio y despierta ganas de cuidarlo.'],['Orden y reciclaje','Contenedores señalizados evitan residuos en el suelo y facilitan el aseo municipal.'],['Vigilancia natural','Vecinos sentados o de paso hacen que la esquina deje de ser una zona ciega.']]}
+];
+var tabsEl=$('#tabs'),panelsEl=$('#panels');
+function selectTab(i){
+  Array.prototype.forEach.call(tabsEl.children,function(b,j){b.setAttribute('aria-selected',String(i===j));b.tabIndex=i===j?0:-1});
+  Array.prototype.forEach.call(panelsEl.children,function(p,j){p.hidden=i!==j});
+}
+PROPS.forEach(function(p,i){
+  tabsEl.append(h('button',{type:'button',class:'tab',role:'tab',id:'tab-'+i,'aria-controls':'pan-'+i,onclick:function(){selectTab(i)},onkeydown:function(e){
+    var n=-1;if(e.key==='ArrowRight')n=(i+1)%PROPS.length;if(e.key==='ArrowLeft')n=(i+PROPS.length-1)%PROPS.length;
+    if(n>=0){e.preventDefault();selectTab(n);tabsEl.children[n].focus()}}},h('span',{text:String(i+1)}),p.t));
+  panelsEl.append(h('div',{class:'panel',role:'tabpanel',id:'pan-'+i,'aria-labelledby':'tab-'+i},
+    h('div',null,h('p',{class:'eyebrow',text:'Propuesta '+(i+1)}),h('h3',{text:p.t}),h('p',{class:'desc',text:p.d})),
+    h('div',{class:'attrs'},p.a.map(function(a,k){return h('div',{class:'attr'},h('em',{text:'0'+(k+1)}),h('div',null,h('h4',{text:a[0]}),h('p',{text:a[1]})))}))));
+});
+selectTab(0);
+
+/* ---------- Equipo ---------- */
+var TEAM=[['Ana Ceballos','Comunicadora','#2A9D8F'],['Antonia Núñez','Mente creativa','#C2571A'],['Manuel Lizzi','Desarrollador','#1B5FD1'],['Nataly Moreira','Desarrolladora','#7A4FA0'],['Vicente González','Organizador','#3E7D3A']];
+TEAM.forEach(function(m){
+  var av=h('div',{class:'avatar',text:m[0].split(' ').map(function(x){return x[0]}).join('')});av.style.background=m[2];
+  $('#team').append(h('div',{class:'member rv'},av,h('b',{text:m[0]}),h('span',{text:m[1]})));
+});
+
+/* ---------- Aliados ---------- */
+var ALLIES={municipalidades:[],marcas:[]}; /* Agrega aquí los nombres, por ejemplo {name:'Municipalidad de Santiago'} */
+function allyGrid(el,list,ph){
+  var n=Math.max(4,list.length);
+  for(var i=0;i<n;i++)el.append(list[i]?h('div',{class:'ally',text:list[i].name}):h('div',{class:'ally ph',text:ph}));
+}
+allyGrid($('#al-muni'),ALLIES.municipalidades,'Aquí aparecerá una municipalidad aliada');
+allyGrid($('#al-marca'),ALLIES.marcas,'Aquí aparecerá una marca aliada');
+
+/* ---------- Foro (almacenamiento local del navegador) ---------- */
+var STATES=[['recibido','Recibido'],['evaluacion','En evaluación'],['equipo','Equipo en camino'],['recuperado','Recuperado']];
+var LABEL={};STATES.forEach(function(s){LABEL[s[0]]=s[1]});
+var KEY='ec_foro_v1',mem=null;
+function now(){return Date.now()}
+function seed(){
+  var d=86400000,t=now();
+  return {reports:[
+    {id:'s1',title:'Esquina de calle Viollier con contenedores desbordados',kind:'Esquina o rincón',comuna:'Santiago',problem:'Basura y escombros',body:'Los contenedores se llenan antes de cada retiro y la basura queda en la vereda. Hace falta un punto de reciclaje cerrado y señalizado.',who:'Ejemplo del equipo',createdAt:t-3*d,state:'evaluacion',base:14,mine:false,replies:[{who:'Vecina del sector',text:'Paso por ahí todos los días y confirmo que es así.',createdAt:t-2*d}]},
+    {id:'s2',title:'Multicancha sin iluminación',kind:'Cancha o multicancha',comuna:'Ñuñoa',problem:'Iluminación deficiente',body:'Después de las 18:00 no se puede usar. Los niños juegan en la calle por eso.',who:'Ejemplo del equipo',createdAt:t-6*d,state:'equipo',base:22,mine:false,replies:[]},
+    {id:'s3',title:'Plaza del pasaje con bancas rotas',kind:'Plaza',comuna:'Estación Central',problem:'Mobiliario roto o robado',body:'Las bancas fueron retiradas y no quedó dónde sentarse. Las personas mayores ya no la usan.',who:'Ejemplo del equipo',createdAt:t-12*d,state:'recuperado',base:31,mine:false,replies:[]}
+  ]};
+}
+function load(){
+  try{var r=localStorage.getItem(KEY);if(r){mem=JSON.parse(r);return}}catch(e){}
+  mem=mem||seed();
+}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(mem));return true}catch(e){return false}}
+load();
+var filter='todos',sortBy='apoyos',openThreads={},drafts={};
+var toastT;
+function toast(msg){var t=$('#toast');t.textContent=msg;t.hidden=false;clearTimeout(toastT);toastT=setTimeout(function(){t.hidden=true},4200)}
+var rtf=new Intl.RelativeTimeFormat('es-CL',{numeric:'auto'});
+function ago(ts){
+  if(!ts)return '';
+  var m=Math.round((ts-now())/60000),a=Math.abs(m);
+  if(a<1)return 'hace un momento';
+  if(a<60)return rtf.format(m,'minute');
+  if(a<1440)return rtf.format(Math.round(m/60),'hour');
+  return rtf.format(Math.round(m/1440),'day');
+}
+function getName(){try{return localStorage.getItem('ec_name')||''}catch(e){return ''}}
+function setName(v){try{localStorage.setItem('ec_name',v)}catch(e){}}
+function votes(r){return r.base+(r.mine?1:0)}
+
+function renderChips(){
+  var box=$('#chips');box.replaceChildren();
+  [['todos','Todos']].concat(STATES).forEach(function(s){
+    var n=s[0]==='todos'?mem.reports.length:mem.reports.filter(function(r){return r.state===s[0]}).length;
+    box.append(h('button',{type:'button',class:'chip','aria-pressed':String(filter===s[0]),onclick:function(){filter=s[0];renderForum()}},s[1]+' · '+n));
+  });
+}
+function threadFor(r){
+  var box=h('div',{class:'thread'});
+  r.replies.forEach(function(x){box.append(h('div',{class:'reply'},h('span',{class:'meta',text:(x.who||'Vecino/a')+' · '+ago(x.createdAt)}),h('p',{text:x.text})))});
+  if(!r.replies.length)box.append(h('p',{class:'note',text:'Todavía no hay comentarios. Cuenta si conoces el lugar o si quieres ayudar.'}));
+  var ta=h('textarea',{maxlength:'400','aria-label':'Escribe un comentario sobre '+r.title,placeholder:'Escribe un comentario'});
+  ta.value=drafts[r.id]||'';ta.addEventListener('input',function(){drafts[r.id]=ta.value});
+  var nm=h('input',{type:'text',class:'nm',maxlength:'40','aria-label':'Tu nombre (opcional)',placeholder:'Tu nombre (opcional)'});nm.value=getName();
+  var send=h('button',{type:'button',class:'btn btn-sm',text:'Comentar',onclick:function(){
+    var text=ta.value.trim();if(text.length<2){toast('Escribe un comentario antes de enviarlo.');return}
+    var who=nm.value.trim();if(who)setName(who);
+    r.replies.push({who:who,text:text,createdAt:now()});drafts[r.id]='';save();renderForum();
+  }});
+  box.append(h('div',{class:'reply-form'},ta,send,nm));
+  return box;
+}
+function renderForum(){
+  var rs=mem.reports,eq=0,rc=0;
+  rs.forEach(function(r){if(r.state==='equipo')eq++;if(r.state==='recuperado')rc++});
+  $('#n-total').textContent=rs.length;$('#n-equipo').textContent=eq;$('#n-rec').textContent=rc;
+  renderChips();
+  var list=$('#list');list.replaceChildren();
+  var shown=rs.filter(function(r){return filter==='todos'||r.state===filter});
+  shown.sort(sortBy==='apoyos'?function(a,b){return votes(b)-votes(a)||b.createdAt-a.createdAt}:function(a,b){return b.createdAt-a.createdAt});
+  if(!shown.length){list.append(h('div',{class:'empty'},h('b',{text:rs.length?'No hay lugares con este estado':'Aún no hay lugares reportados'}),h('span',{text:rs.length?'Prueba con otro filtro.':'Sé la primera persona en enviar uno.'})));return}
+  shown.forEach(function(r){
+    list.append(h('article',{class:'card'},
+      h('div',{class:'card-top'},h('span',{class:'meta',text:[r.kind,r.comuna,ago(r.createdAt)].filter(Boolean).join(' · ')}),h('span',{class:'st '+r.state,text:LABEL[r.state]})),
+      h('h3',{text:r.title}),h('p',{text:r.body}),
+      (r.photos&&r.photos.length)?h('div',{class:'photos'},r.photos.map(function(src,i){
+        return h('button',{type:'button','aria-label':'Ampliar foto '+(i+1)+' de '+r.title,onclick:function(){openPhoto(src)}},h('img',{src:src,alt:'Foto '+(i+1)+' de '+r.title,loading:'lazy'}));
+      })):null,
+      h('div',null,h('span',{class:'tag',text:r.problem||''}),r.who?h('span',{class:'meta',style:'margin-left:10px',text:'Reporta: '+r.who}):null),
+      h('div',{class:'acts'},
+        h('button',{type:'button',class:'act','aria-pressed':String(!!r.mine),onclick:function(){r.mine=!r.mine;save();renderForum()}},r.mine?'Apoyado':'Apoyar',h('b',{text:String(votes(r))})),
+        h('button',{type:'button',class:'act plain','aria-expanded':String(!!openThreads[r.id]),onclick:function(){openThreads[r.id]=!openThreads[r.id];renderForum()}},'Comentarios ('+r.replies.length+')')),
+      openThreads[r.id]?threadFor(r):null));
+  });
+}
+/* Fotos: se reducen en el navegador antes de guardarlas */
+var pending=[],MAXP=3;
+function openPhoto(src){var d=$('#lb');$('img',d).src=src;if(d.showModal)d.showModal();else d.setAttribute('open','')}
+$('#lb-x').addEventListener('click',function(){var d=$('#lb');if(d.close)d.close();else d.removeAttribute('open')});
+$('#lb').addEventListener('click',function(e){if(e.target===this&&this.close)this.close()});
+function shrink(file){
+  return new Promise(function(res,rej){
+    var fr=new FileReader();
+    fr.onerror=function(){rej()};
+    fr.onload=function(){
+      var im=new Image();
+      im.onerror=function(){rej()};
+      im.onload=function(){
+        var M=960,s=Math.min(1,M/Math.max(im.width,im.height)),w=Math.round(im.width*s),hh=Math.round(im.height*s);
+        var c=document.createElement('canvas');c.width=w;c.height=hh;
+        var x=c.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,w,hh);x.drawImage(im,0,0,w,hh);
+        res(c.toDataURL('image/jpeg',.72));
+      };
+      im.src=fr.result;
+    };
+    fr.readAsDataURL(file);
+  });
+}
+function renderPrev(){
+  var box=$('#prev');box.replaceChildren();
+  pending.forEach(function(src,i){
+    box.append(h('div',{class:'thumb'},h('img',{src:src,alt:'Vista previa de la foto '+(i+1)}),
+      h('button',{type:'button','aria-label':'Quitar foto '+(i+1),text:'×',onclick:function(){pending.splice(i,1);renderPrev();fieldErr('photo','')}})));
+  });
+}
+$('#f-photo').addEventListener('change',function(e){
+  var files=Array.prototype.slice.call(e.target.files||[]),input=e.target;
+  var imgs=files.filter(function(f){return /^image\//.test(f.type)});
+  var room=MAXP-pending.length,msg='';
+  if(imgs.length<files.length)msg='Solo se aceptan imágenes.';
+  if(imgs.length>room){msg='Puedes subir hasta '+MAXP+' fotos.';imgs=imgs.slice(0,Math.max(0,room))}
+  fieldErr('photo',msg);
+  Promise.all(imgs.map(function(f){return shrink(f).catch(function(){return null})})).then(function(out){
+    out.forEach(function(s){if(s&&pending.length<MAXP)pending.push(s)});
+    if(out.some(function(s){return !s}))fieldErr('photo','No se pudo leer una de las imágenes.');
+    renderPrev();input.value='';
+  });
+});
+
+function fieldErr(id,msg,input){
+  var e=$('#e-'+id);if(!e)return;e.hidden=!msg;e.textContent=msg||'';
+  if(input){if(msg)input.setAttribute('aria-invalid','true');else input.removeAttribute('aria-invalid')}
+}
+var form=$('#rep-form');$('#f-name').value=getName();
+form.addEventListener('submit',function(ev){
+  ev.preventDefault();
+  var f={title:$('#f-title'),kind:$('#f-kind'),comuna:$('#f-comuna'),problem:$('#f-problem'),body:$('#f-body'),who:$('#f-name')};
+  var ok=true;
+  var chk=function(key,bad,msg){fieldErr(key,bad?msg:'',f[key]);if(bad)ok=false};
+  chk('title',f.title.value.trim().length<4,'Escribe el nombre del lugar.');
+  chk('kind',!f.kind.value,'Elige el tipo de lugar.');
+  chk('comuna',f.comuna.value.trim().length<2,'Indica la comuna.');
+  chk('body',f.body.value.trim().length<10,'Cuéntanos un poco más (mínimo 10 caracteres).');
+  if(!ok)return;
+  var who=f.who.value.trim();if(who)setName(who);
+  var rep={id:'u'+now(),title:f.title.value.trim(),kind:f.kind.value,comuna:f.comuna.value.trim(),problem:f.problem.value,body:f.body.value.trim(),who:who,createdAt:now(),state:'recibido',base:0,mine:false,replies:[],photos:pending.slice()};
+  mem.reports.push(rep);
+  if(!save()){
+    mem.reports.pop();
+    if(rep.photos.length){rep.photos=[];mem.reports.push(rep);
+      if(save()){toast('No hubo espacio para las fotos, el reporte se guardó sin ellas.')}
+      else{mem.reports.pop();toast('El navegador no tiene espacio para guardar más reportes.');return}
+    }else{toast('El navegador no tiene espacio para guardar más reportes.');return}
+  }else{toast('Listo, tu lugar quedó en el foro.')}
+  form.reset();pending=[];renderPrev();f.who.value=getName();filter='todos';sortBy='recientes';$('#sort').value='recientes';renderForum();
+  toast('Listo, tu lugar quedó en el foro.');
+});
+$('#sort').addEventListener('change',function(e){sortBy=e.target.value;renderForum()});
+renderForum();
+
+/* ---------- Formulario de aliados (demostración) ---------- */
+$('#al-form').addEventListener('submit',function(ev){
+  ev.preventDefault();
+  var org=$('#a-org'),con=$('#a-contact'),ok=true;
+  var bo=org.value.trim().length<2,bc=con.value.trim().length<5;
+  fieldErr('org',bo?'Escribe el nombre de la organización.':'',org);fieldErr('contact',bc?'Déjanos un correo o teléfono.':'',con);
+  if(bo||bc)return;
+  ev.target.reset();toast('Gracias. Esta es una demostración: aún no se envía a un servidor.');
+});
+
+/* ---------- Aparición al scroll y menú activo ---------- */
+var rv=document.querySelectorAll('.rv');
+if('IntersectionObserver' in window){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  rv.forEach(function(el){io.observe(el)});
+}else{rv.forEach(function(el){el.classList.add('in')})}
+var links=document.querySelectorAll('.nav-links a');
+if('IntersectionObserver' in window){
+  var so=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id)})}})},{rootMargin:'-45% 0px -50% 0px'});
+  links.forEach(function(a){var s=document.getElementById(a.getAttribute('href').slice(1));if(s)so.observe(s)});
+}
+})();
+</script>
+</body>
+</html>
